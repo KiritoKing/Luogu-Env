@@ -1,0 +1,66 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "G++ Build",
+			"command": "g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "使用G++编译"
+		},
+		{
+			"type": "cppbuild",
+			"label": "Clang Build",
+			"command": "cl.exe",
+			"args": [
+				"/Zi",
+				"/EHsc",
+				"/nologo",
+				"/Fe:",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+				"${file}"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build",
+			"detail": "使用Clang编译"
+		},
+		{
+            "label": "Run Code",   
+            "type": "shell",   
+            "dependsOn": "G++ Build",
+            "command": "${fileDirname}\\bin\\${fileBasenameNoExtension}.exe",
+            "group": {  
+                "kind": "test", 
+                "isDefault": true,
+            },  
+			"detail": "运行生成的程序",
+            "presentation": {  
+                "echo": true,  
+                "reveal": "always",  
+                "focus": true,
+                "panel": "new"  
+            }  
+        }  
+	]
+}

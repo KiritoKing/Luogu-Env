@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "cstdlib": "cpp",
+        "xutility": "cpp",
+        "queue": "cpp"
+    }
+}
